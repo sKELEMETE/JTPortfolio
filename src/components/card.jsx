@@ -33,11 +33,13 @@ export function MainProjectCard({ title, description, img, link, status }) {
       rel="noopener noreferrer"
       className="max-w-[45%] cursor-pointer relative w-auto h-full rounded-[20px] border-r-1 border-b-1 border-[#00ADB5]/50 shadow-[-4px_-4px_5px_#000000]/25 p-[1.8rem] transition-all duration-500 ease-out hover:border-[#00ADB5] hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] group"
     >
-      <img
-        src={img}
-        alt={title}
-        className="hover:z-200 absolute top-1/2 left-1/2 w-full h-full object-cover rounded-[20px] opacity-10 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:scale-105"
-      />
+      {img && (
+        <img
+          src={img}
+          alt={title}
+          className="hover:z-200 absolute top-1/2 left-1/2 w-full h-full object-cover rounded-[20px] opacity-10 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:scale-105"
+        />
+      )}
 
       <h1 className="text-center text-[#EEEEEE]/50 font-[Poppins] tracking-[2px]">
         {status}
