@@ -6,6 +6,7 @@ import LinkDesign from "../links/link.jsx";
 import { projectsData } from "../js/projectsData.js";
 import ContactForm from "../components/email.jsx";
 import { div } from "framer-motion/client";
+import jt3d from "../src/assets/imgs/jt3d.svg";
 
 export default function FirstSection() {
   const [activeDiv, setActiveDiv] = useState("intro");
@@ -113,7 +114,7 @@ export default function FirstSection() {
           }}
         >
           <img
-            src="../src/assets/imgs/jt3d.svg"
+            src={jt3d}
             alt="jt3d"
             className="h-[600px] w-auto object-contain transition-all duration-500 ease-in-out"
           />
