@@ -6,7 +6,7 @@ import LinkDesign from "../links/link.jsx";
 import { projectsData } from "../js/projectsData.js";
 import ContactForm from "../components/email.jsx";
 import { div } from "framer-motion/client";
-import jt3d from "../src/assets/imgs/jt3d.svg";
+import jt3d from "../assets/imgs/jt3d.svg";
 
 export default function FirstSection() {
   const [activeDiv, setActiveDiv] = useState("intro");
