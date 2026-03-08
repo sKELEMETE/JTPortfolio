@@ -12,14 +12,14 @@ export default function SkillsSection() {
   const handleBack = () => setActiveCategory(null);
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-start pl-40">
+    <div className="flex h-full w-full flex-col items-start justify-center px-2 sm:px-4 lg:pl-24 xl:pl-40">
       <motion.div
         key={activeCategory ? "cards" : "titles"}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="w-full h-full flex flex-col justify-center items-start "
+        className="flex h-full w-full flex-col items-start justify-center"
       >
         {activeCategory ? (
           <>
@@ -27,12 +27,12 @@ export default function SkillsSection() {
               <img
                 src={backIcon}
                 alt="Back"
-                className="cursor-pointer w-20 opacity-50 hover:opacity-100 hover:scale-110 transition-transform duration-200 -translate-x-15 -translate-y-5"
+                className="w-14 cursor-pointer opacity-50 transition-transform duration-200 hover:scale-110 hover:opacity-100 sm:w-16 lg:w-20 lg:-translate-x-8 lg:-translate-y-3"
               />
             </button>
 
             {activeCategory === "front-end" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="flex h-[85%] w-full flex-col flex-wrap items-start justify-start gap-y-3 md:flex-wrap-reverse">
                 <SkillCard icon={dev} Name="HTML" Percent={85} />
                 <SkillCard icon={dev} Name="CSS" Percent={85} />
                 <SkillCard icon={dev} Name="JavaScript" Percent={50} />
@@ -44,7 +44,7 @@ export default function SkillsSection() {
               </div>
             )}
             {activeCategory === "back-end" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="flex h-[85%] w-full flex-col flex-wrap items-start justify-start gap-y-3 md:flex-wrap-reverse">
                 <SkillCard icon={dev} Name={<>Python</>} Percent={85} />
                 <SkillCard icon={dev} Name="PHP" Percent={60} />
                 <LockSkill icon={dev} Name="API" />
@@ -52,14 +52,14 @@ export default function SkillsSection() {
               </div>
             )}
             {activeCategory === "database" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="flex h-[85%] w-full flex-col flex-wrap items-start justify-start gap-y-3 md:flex-wrap-reverse">
                 <SkillCard icon={dev} Name="MySQL" Percent={20} />
                 <LockSkill icon={dev} Name="NoSQL" />
                 <LockSkill icon={dev} Name="MongoDB" />
               </div>
             )}
             {activeCategory === "tools" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="flex h-[85%] w-full flex-col flex-wrap items-start justify-start gap-y-3 md:flex-wrap-reverse">
                 <SkillCard icon={dev} Name="Git & GitHub" Percent={40} />
                 <SkillCard icon={dev} Name="VS Code" Percent={80} />
                 <SkillCard icon={dev} Name="Figma" Percent={70} />
@@ -68,7 +68,7 @@ export default function SkillsSection() {
               </div>
             )}
             {activeCategory === "networking" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="flex h-[85%] w-full flex-col flex-wrap items-start justify-start gap-y-3 md:flex-wrap-reverse">
                 <SkillCard
                   icon={dev}
                   Name="Hardware/Software Troubleshooting"
@@ -83,7 +83,7 @@ export default function SkillsSection() {
               </div>
             )}
             {activeCategory === "extra" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="flex h-[85%] w-full flex-col flex-wrap items-start justify-start gap-y-3 md:flex-wrap-reverse">
                 <SkillCard
                   icon={dev}
                   Name="Cybersecurity Awareness"

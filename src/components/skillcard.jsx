@@ -1,9 +1,9 @@
 export default function SkillCard({ icon, Name, Percent }) {
   return (
-    <div className="relative border-1 border-gray-500 rounded-[10px] group w-[45%] px-2 pb-2 pt-6">
+    <div className="group relative w-full rounded-[10px] border border-gray-500 px-2 pb-2 pt-5 sm:w-[48%] lg:w-[45%]">
       <div className=" flex flex-col w-full h-full">
         <div className="mb-1 flex  flex-row justify-start items-center w-full h-full">
-          <img src={`${icon}`} alt={`${Name} logo`} className="w-[15%] mr-2" />
+          <img src={`${icon}`} alt={`${Name} logo`} className="mr-2 w-8 sm:w-[15%]" />
           <h1
             className=" font-[Poppins] font-bold text-[#EEEEEE] tracking-[2px] 
                truncate overflow-hidden text-ellipsis  
@@ -49,10 +49,10 @@ export default function SkillCard({ icon, Name, Percent }) {
 
 export function LockSkill({ icon, Name }) {
   return (
-    <div className="relative w-[45%] px-3 pb-3 mb-2 mt-2 opacity-50 blur-[2px]">
+    <div className="relative mb-2 mt-2 w-full px-3 pb-3 opacity-50 blur-[2px] sm:w-[48%] lg:w-[45%]">
       <div className=" flex flex-col w-full h-full">
         <div className="flex flex-row justify-start items-center w-full h-full ">
-          <img src={`${icon}`} alt={`${Name} logo`} className="w-[15%] mr-2" />
+          <img src={`${icon}`} alt={`${Name} logo`} className="mr-2 w-8 sm:w-[15%]" />
           <h1
             className="w-full max-w-full font-[Poppins] font-bold text-black tracking-[2px]
   text-[clamp(0.9rem, 1.5vw + 0.3rem, 1.5rem)]
@@ -87,15 +87,15 @@ export function SkillTitle({ Title, onClick }) {
   return (
     <button
       onClick={onClick}
-      class="relative flex items-center p-5
+      className="relative flex items-center p-3 sm:p-4 lg:p-5
   bg-transparent text-gray-400 
-  font-[Poppins] text-[26px] tracking-[1px]
+  font-[Poppins] text-[18px] sm:text-[22px] lg:text-[26px] tracking-[1px]
   transition-all duration-500 ease-in-out 
   hover:text-[#00ADB5] 
   group overflow-hidden cursor-pointer"
     >
       <span
-        class="absolute left-0 top-1/2 h-[60%] w-[2px] -translate-y-1/2 
+        className="absolute left-0 top-1/2 h-[60%] w-[2px] -translate-y-1/2 
     bg-gradient-to-b from-transparent via-[#00ADB5] to-transparent
     opacity-100 
     transition-all duration-500 ease-[cubic-bezier(0.37,1.95,0.66,0.56)] 

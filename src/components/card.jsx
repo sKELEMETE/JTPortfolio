@@ -7,14 +7,14 @@ export default function ProjectCard({ title, description }) {
   };
 
   return (
-    <div className="relative w-auto h-[100%] rounded-[20px] border-2 border-[#00ADB5] p-[1.8rem] overflow-visible transition-all duration-500 ease-out hover:border-[#00ADB5] hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] group bg-[rgba(245,245,245,)] hover:bg-[rgba(245,245,245,0.2)]">
+    <div className="group relative h-full w-auto overflow-visible rounded-[20px] border-2 border-[#00ADB5] p-5 transition-all duration-500 ease-out hover:border-[#00ADB5] hover:bg-[rgba(245,245,245,0.2)] hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] sm:p-[1.8rem]">
       <div className="grid place-content-center h-full gap-2 text-black">
         <p className="text-[1.5em] font-bold text-[#EEEEEE]">{title}</p>
         <p className="text-[#EEEEEE] opacity-50">{description}</p>
       </div>
       <button
         onClick={scrollToSection}
-        className="absolute left-1/2 bottom-0 translate-x-[-50%] translate-y-[125%] opacity-0 w-[60%] bg-[#008bf8] text-white text-[1rem] rounded-xl py-2 px-4 border-none transition-all duration-300 ease-out group-hover:translate-y-[50%] group-hover:opacity-100 hover:cursor-pointer"
+        className="absolute bottom-0 left-1/2 w-[75%] translate-x-[-50%] translate-y-[125%] rounded-xl border-none bg-[#008bf8] px-4 py-2 text-[0.95rem] text-white opacity-0 transition-all duration-300 ease-out group-hover:translate-y-[50%] group-hover:opacity-100 hover:cursor-pointer sm:w-[60%] sm:text-[1rem]"
       >
         More info
       </button>
@@ -31,7 +31,7 @@ export function MainProjectCard({ title, description, img, link, status }) {
       }}
       target="_blank"
       rel="noopener noreferrer"
-      className="max-w-[45%] cursor-pointer relative w-auto h-full rounded-[20px] border-r-1 border-b-1 border-[#00ADB5]/50 shadow-[-4px_-4px_5px_#000000]/25 p-[1.8rem] transition-all duration-500 ease-out hover:border-[#00ADB5] hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] group"
+      className="group relative h-full w-full cursor-pointer rounded-[20px] border-b border-r border-[#00ADB5]/50 p-5 shadow-[-4px_-4px_5px_#000000]/25 transition-all duration-500 ease-out hover:border-[#00ADB5] hover:shadow-[0_4px_18px_rgba(0,0,0,0.25)] sm:p-6 lg:max-w-[45%]"
     >
       {img && (
         <img
@@ -45,7 +45,7 @@ export function MainProjectCard({ title, description, img, link, status }) {
         {status}
       </h1>
 
-      <div className=" relative h-[350px] flex flex-col justify-end gap-2 text-[#EEEEEE] text-left z-10">
+      <div className="relative z-10 flex h-[260px] flex-col justify-end gap-2 text-left text-[#EEEEEE] sm:h-[300px] lg:h-[350px]">
         <p className="text-[1.5em] font-bold">{title}</p>
         <p className="opacity-70">{description}</p>
       </div>

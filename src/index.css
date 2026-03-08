@@ -29,24 +29,25 @@ html {
 .sections {
   background: #222831;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  height: auto;
 }
 
 .button-container > button {
-  margin-right: 5rem;
+  margin-right: 0;
 }
 
 .jt-button {
   color: #00adb5;
-  font-size: 50px;
+  font-size: clamp(2rem, 5vw, 3.125rem);
   font-weight: 1000;
 }
 
 .top-nav-link {
   color: #00adb5;
-  font-size: 20px;
+  font-size: clamp(0.95rem, 2.5vw, 1.25rem);
   font-weight: 350;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
 }
 
 .left-container {

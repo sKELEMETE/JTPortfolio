@@ -8,7 +8,7 @@ export default function Topbar({
 }) {
   return (
     <motion.div
-      className="border-b border-[#00ADB5]/20 backdrop-blur-md z-100 sticky top-0 button-container flex flex-row justify-start items-center w-full pl-5 "
+      className="border-b border-[#00ADB5]/20 backdrop-blur-md sticky top-0 z-50 flex w-full flex-wrap items-center gap-x-4 gap-y-2 px-4 py-2 sm:gap-x-6 sm:px-6"
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{
@@ -17,7 +17,7 @@ export default function Topbar({
       }}
     >
       <motion.button
-        className="cursor-pointer"
+        className="cursor-pointer shrink-0"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={onJTClick}
