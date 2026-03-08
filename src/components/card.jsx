@@ -37,7 +37,7 @@ export function MainProjectCard({ title, description, img, link, status }) {
         <img
           src={img}
           alt={title}
-          className="hover:z-200 absolute top-1/2 left-1/2 w-full h-full object-cover rounded-[20px] opacity-10 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:scale-105"
+          className="hover:z-99 absolute top-1/2 left-1/2 w-full h-full object-cover rounded-[20px] opacity-10 transition-all duration-500 ease-out -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:scale-105"
         />
       )}
 
