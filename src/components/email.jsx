@@ -46,7 +46,7 @@ export default function ContactForm() {
         onSubmit={handleSubmit}
         className="w-full flex flex-col items-center"
       >
-        <h1 className="text-white text-[35px] font-light mb-2 w-[80%] text-left font-[Poppins]">
+        <h1 className="mb-2 w-[88%] text-left font-[Poppins] text-[28px] font-light text-white sm:w-[80%] sm:text-[35px]">
           Get in Touch
         </h1>
 
@@ -56,7 +56,7 @@ export default function ContactForm() {
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          className="mb-3 w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
+          className="mb-3 w-[88%] rounded-md border border-[#00ADB5] p-3 font-extralight text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5] sm:w-[80%]"
           required
         />
 
@@ -66,7 +66,7 @@ export default function ContactForm() {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          className="mb-3 w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
+          className="mb-3 w-[88%] rounded-md border border-[#00ADB5] p-3 font-extralight text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5] sm:w-[80%]"
           required
         />
 
@@ -76,14 +76,14 @@ export default function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="mb-3 w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
+          className="mb-3 w-[88%] rounded-md border border-[#00ADB5] p-3 font-extralight text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5] sm:w-[80%]"
           required
         />
 
-        <div className="w-[80%] flex justify-end">
+        <div className="flex w-[88%] justify-end sm:w-[80%]">
           <button
             type="submit"
-            className="text-[30px] w-[35%] bg-[#00ADB5] text-white font-semibold px-5 rounded-md hover:bg-[#008b99] hover:scale-105 transition duration-300"
+            className="w-full rounded-md bg-[#00ADB5] px-5 text-[22px] font-semibold text-white transition duration-300 hover:scale-105 hover:bg-[#008b99] sm:w-[45%] sm:text-[30px]"
           >
             SEND
           </button>

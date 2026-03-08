@@ -29,14 +29,14 @@ export default function FirstSection() {
   };
 
   return (
-    <div className="sections flex flex-col">
+    <div className="sections flex flex-col overflow-x-hidden px-4 pb-6 pt-4 sm:px-6 lg:px-10">
       {/* <Topbar /> */}
 
-      <div className="mt-[4%] flex flex-row justify-evenly items-center">
+      <div className="mt-4 flex w-full flex-col items-center gap-6 lg:mt-[4%] lg:flex-row lg:justify-evenly lg:gap-4">
         {/* Left container */}
-        <div className=" translate-y-10 flex flex-col justify-center items-center w-[50%] h-full">
+        <div className="flex h-full w-full flex-col items-center justify-center lg:w-1/2 lg:translate-y-8">
           <div
-            className={`left-container flex flex-col justify-start items-center w-full h-[420px] max-h-[500px] rounded-[13px] shadow-[5px_5px_20px_0_rgba(0,173,181,0.2)] -translate-y-10 overflow-hidden relative border-1 border-[#00ADB5] bg-red-100 transition-opacity duration-500 ${
+            className={`left-container relative flex h-[360px] w-full max-w-3xl flex-col items-center justify-start overflow-hidden rounded-[13px] border border-[#00ADB5] shadow-[5px_5px_20px_0_rgba(0,173,181,0.2)] transition-opacity duration-500 sm:h-[420px] lg:-translate-y-10 ${
               activeDiv === "contact" || activeDiv === "projects"
                 ? "!bg-none !border-none "
                 : "opacity-100"
@@ -49,12 +49,12 @@ export default function FirstSection() {
             >
               {activeDiv === "intro" && (
                 <>
-                  <h1 className=" text-white font-[Poppins] font-bold text-[40px] text-center leading-[110%]">
+                  <h1 className="px-4 text-center font-[Poppins] text-[28px] leading-[110%] font-bold text-white sm:text-[34px] lg:text-[40px]">
                     DESIGNER <span className="font-light text-[85%]">|</span>{" "}
                     DEVELOPER
                     <br />& TROUBLESHOOTING
                   </h1>
-                  <p className="ml-10 mt-5 text-white text-[20px] font-thin font-[Poppins] w-[70%]">
+                  <p className="mt-4 w-[88%] text-white text-[15px] font-thin font-[Poppins] sm:mt-5 sm:w-[80%] sm:text-[18px] lg:ml-10 lg:w-[70%] lg:text-[20px]">
                     I combine creative design with technical mastery to craft
                     seamless, high-performing digital experiences. From visuals
                     to code, I transform ideas into polished solutions that are
@@ -80,24 +80,24 @@ export default function FirstSection() {
           </div>
 
           {/* Buttons */}
-          <div className="pl-5 pr-5 flex flex-row items-center justify-between w-full h-[10%] -translate-y-5">
+          <div className="flex w-full max-w-3xl flex-col items-center justify-between gap-3 px-2 sm:flex-row sm:px-0 lg:-translate-y-5">
             <button
               onClick={handleContactClick}
-              className={`bg-[#00ADB5] h-full w-[45%] rounded-[10px] transition duration-300 hover:scale-105 hover:cursor-pointer ${
+              className={`h-14 w-full rounded-[10px] bg-[#00ADB5] transition duration-300 hover:scale-105 hover:cursor-pointer sm:h-16 sm:w-[48%] ${
                 activeDiv === "contact" ? "brightness-110" : ""
               }`}
             >
-              <h1 className="font-semibold font-[Poppins] text-white text-[30px]">
+              <h1 className="font-semibold font-[Poppins] text-[20px] text-white sm:text-[24px] lg:text-[30px]">
                 CONTACT ME
               </h1>
             </button>
             <button
               onClick={handleProjectsClick}
-              className={`border-2 border-[#00ADB5] h-full w-[45%] rounded-[10px] transition duration-300 hover:scale-105 hover:cursor-pointer ${
+              className={`h-14 w-full rounded-[10px] border-2 border-[#00ADB5] transition duration-300 hover:scale-105 hover:cursor-pointer sm:h-16 sm:w-[48%] ${
                 activeDiv === "projects" ? "bg-[#00ADB5]/20" : ""
               }`}
             >
-              <h1 className="font-semibold font-[Poppins] text-[#00ADB5] text-[30px]">
+              <h1 className="font-semibold font-[Poppins] text-[20px] text-[#00ADB5] sm:text-[24px] lg:text-[30px]">
                 PROJECTS
               </h1>
             </button>
@@ -105,7 +105,7 @@ export default function FirstSection() {
         </div>
         {/* Left side image */}
         <div
-          className="w-60 h-80 rounded-full flex items-center justify-center translate-x-20 translate-y-5"
+          className="hidden h-72 w-52 items-center justify-center rounded-full md:flex lg:h-80 lg:w-60 lg:translate-x-12 lg:translate-y-5"
           style={{
             backgroundImage:
               "radial-gradient(rgba(0, 173, 181, 0.1) 2px, transparent 0)",
@@ -116,11 +116,11 @@ export default function FirstSection() {
           <img
             src={jt3d}
             alt="jt3d"
-            className="h-[600px] w-auto object-contain transition-all duration-500 ease-in-out"
+            className="h-[430px] w-auto object-contain transition-all duration-500 ease-in-out lg:h-[600px]"
           />
         </div>
         {/* Links */}
-        <div className="h-[85%] w-[5%] flex flex-col justify-end items-center">
+        <div className="hidden h-[85%] w-[5%] flex-col items-center justify-end md:flex">
           <AnimatePresence>
             {showLinks && (
               <motion.div

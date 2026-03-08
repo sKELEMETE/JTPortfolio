@@ -37,8 +37,8 @@ const CONTENT = {
     },
     right: {
       component: (
-        <div className="pt-10 relative w-full h-full flex justify-start items-start cursor-default">
-          <div className="relative w-[380px] aspect-square ">
+        <div className="relative flex h-full w-full cursor-default items-start justify-center pt-6 sm:pt-10 lg:justify-start">
+          <div className="relative aspect-square w-[280px] sm:w-[340px] lg:w-[380px]">
             <motion.div
               className="absolute top-1/2 left-1/2 w-[90px] h-[90px] 
 rounded-full 
@@ -78,7 +78,7 @@ hover:scale-110 hover:shadow-[0_0_40px_#00ADB5,0_0_80px_#00ADB520,inset_0_0_30px
 
     right: {
       component: (
-        <div className="w-full h-full flex items-end justify-center">
+        <div className="flex h-full w-full items-end justify-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -86,7 +86,11 @@ hover:scale-110 hover:shadow-[0_0_40px_#00ADB5,0_0_80px_#00ADB520,inset_0_0_30px
             className="w-full h-full flex items-end justify-center"
           >
             <img src={gridImg} alt="grid" className="absolute w-[85%]" />
-            <img src={jt3dback} alt="jt3dback" className="z-10 w-[62%]" />
+            <img
+              src={jt3dback}
+              alt="jt3dback"
+              className="z-10 w-[70%] sm:w-[62%]"
+            />
           </motion.div>
         </div>
       ),
@@ -99,19 +103,16 @@ export default function SecondSection() {
   const layout = CONTENT[selected];
 
   return (
-    <div className="bg-[#222831] w-full h-screen flex flex-col border-b border-[#00ADB5]">
+    <div className="flex min-h-screen w-full flex-col border-b border-[#00ADB5] bg-[#222831] px-4 pb-8 pt-6 sm:px-6 lg:px-0">
       {/* <Topbar /> */}
-      <div className="flex flex-row w-full h-full px-5 pt-25">
-        <div className="w-[15%] h-full pl-10 pt-10">
+      <div className="flex h-full w-full flex-col gap-6 pt-6 lg:flex-row lg:px-5 lg:pt-25">
+        <div className="w-full lg:h-full lg:w-[15%] lg:pl-10 lg:pt-10">
           <RadioSelector onChange={setSelected} />
         </div>
 
-        <div className="relative flex w-full h-full flex-row">
+        <div className="relative flex h-full w-full flex-col gap-6 lg:flex-row">
           {["left", "right"].map((side) => (
-            <AnimatedColorCard
-              key={`${selected}-${side}`}
-              isLeft={side === "right"}
-            >
+            <AnimatedColorCard key={`${selected}-${side}`}>
               {layout[side].component}
             </AnimatedColorCard>
           ))}
@@ -121,14 +122,13 @@ export default function SecondSection() {
   );
 }
 
-function AnimatedColorCard({ isLeft, children }) {
-  const moveX = isLeft ? ["0%", "50%", "100%"] : ["100%", "50%", "0%"];
+function AnimatedColorCard({ children }) {
   return (
     <motion.div
-      className="absolute h-full w-1/2"
-      animate={{ x: moveX }}
-      transition={{ duration: 1, ease: "linear" }}
-      style={{ left: 0 }}
+      className="h-[360px] w-full overflow-hidden rounded-2xl md:h-[420px] lg:h-full lg:flex-1"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.45, ease: "easeInOut" }}
     >
       <div className="h-full w-full">{children}</div>
     </motion.div>
@@ -157,11 +157,11 @@ function SkillNode({ label, icon, angle, distance }) {
           scale: 1.15,
           textShadow: "0 0 12px #00ADB5",
         }}
-        className="w-[70px] h-[70px] bg-[#393E46] rounded-full flex items-center justify-center text-2xl shadow-[0_0_10px_#00ADB5] text-[#00ADB5]"
+        className="flex h-[56px] w-[56px] items-center justify-center rounded-full bg-[#393E46] text-xl text-[#00ADB5] shadow-[0_0_10px_#00ADB5] sm:h-[70px] sm:w-[70px] sm:text-2xl"
       >
         {icon}
       </motion.div>
-      <p className="text-sm text-gray-200 mt-2 text-center font-[Poppins]">
+      <p className="mt-2 max-w-[90px] text-center font-[Poppins] text-xs text-gray-200 sm:text-sm">
         {label}
       </p>
     </motion.div>
