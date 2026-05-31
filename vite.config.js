@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 import svgr from "vite-plugin-svgr";
 
 export default defineConfig({
-   base: '/JTPortfolio/', //HAHA for Github Pages to idk 
+  base: '/',
   plugins: [react(), svgr()],
 });
