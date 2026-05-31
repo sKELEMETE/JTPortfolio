@@ -1,38 +1,42 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+
 import SkillCard, { SkillTitle, LockSkill } from "./skillcard";
 
 import backIcon from "../assets/imgs/back.svg";
-import htmlIcon from "../assets/imgs/html.svg";
 import dev from "../assets/imgs/dev.svg";
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState(null);
 
-  const handleBack = () => setActiveCategory(null);
+  const handleBack = () => {
+    setActiveCategory(null);
+  };
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-start pl-40">
+    <div className="w-full min-h-[600px] flex flex-col justify-start items-start">
       <motion.div
         key={activeCategory ? "cards" : "titles"}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="w-full h-full flex flex-col justify-center items-start "
+        transition={{ duration: 0.3 }}
+        className="w-full"
       >
         {activeCategory ? (
           <>
-            <button onClick={handleBack} className="focus:outline-none">
+            <button
+              onClick={handleBack}
+              className="mb-6 hover:scale-110 transition-transform duration-200"
+            >
               <img
                 src={backIcon}
-                alt="Back"
-                className="cursor-pointer w-20 opacity-50 hover:opacity-100 hover:scale-110 transition-transform duration-200 -translate-x-15 -translate-y-5"
+                alt="back"
+                className="w-10 sm:w-14 opacity-70"
               />
             </button>
 
             {activeCategory === "front-end" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 <SkillCard icon={dev} Name="HTML" Percent={85} />
                 <SkillCard icon={dev} Name="CSS" Percent={85} />
                 <SkillCard icon={dev} Name="JavaScript" Percent={50} />
@@ -43,32 +47,41 @@ export default function SkillsSection() {
                 <SkillCard icon={dev} Name="TailWind" Percent={60} />
               </div>
             )}
+
             {activeCategory === "back-end" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
-                <SkillCard icon={dev} Name={<>Python</>} Percent={85} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                <SkillCard icon={dev} Name="Python" Percent={85} />
                 <SkillCard icon={dev} Name="PHP" Percent={60} />
-                <LockSkill icon={dev} Name="API" />
-                <LockSkill icon={dev} Name="Node.JS" />
+                <SkillCard icon={dev} Name="Supabase" Percent={50}/>
+                <SkillCard icon={dev} Name="Next.JS" Percent={50}/>
+                <SkillCard icon={dev} Name="Flutter" Percent={50}/>
               </div>
             )}
+
             {activeCategory === "database" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
-                <SkillCard icon={dev} Name="MySQL" Percent={20} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                <SkillCard icon={dev} Name="MySQL" Percent={90} />
+                <SkillCard icon={dev} Name="PostgreSQL" Percent={20}/>
                 <LockSkill icon={dev} Name="NoSQL" />
                 <LockSkill icon={dev} Name="MongoDB" />
               </div>
             )}
+
             {activeCategory === "tools" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 <SkillCard icon={dev} Name="Git & GitHub" Percent={40} />
                 <SkillCard icon={dev} Name="VS Code" Percent={80} />
                 <SkillCard icon={dev} Name="Figma" Percent={70} />
                 <SkillCard icon={dev} Name="Canva" Percent={80} />
                 <SkillCard icon={dev} Name="Notion" Percent={60} />
+                <SkillCard icon={dev} Name="ChatGPT/Codex" Percent={60} />
+                <SkillCard icon={dev} Name="Gemini" Percent={60} />
+
               </div>
             )}
+
             {activeCategory === "networking" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 <SkillCard
                   icon={dev}
                   Name="Hardware/Software Troubleshooting"
@@ -82,8 +95,9 @@ export default function SkillsSection() {
                 <SkillCard icon={dev} Name="Network Security" Percent={50} />
               </div>
             )}
+
             {activeCategory === "extra" && (
-              <div className="w-full h-[85%] gap-y-3 flex flex-col flex-wrap-reverse items-start justify-start">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
                 <SkillCard
                   icon={dev}
                   Name="Cybersecurity Awareness"
@@ -93,32 +107,37 @@ export default function SkillsSection() {
             )}
           </>
         ) : (
-          <>
+          <div className="flex flex-col gap-3 w-full">
             <SkillTitle
               Title="Front-End Development"
               onClick={() => setActiveCategory("front-end")}
             />
+
             <SkillTitle
               Title="Back-End Development"
               onClick={() => setActiveCategory("back-end")}
             />
+
             <SkillTitle
               Title="Database Management"
               onClick={() => setActiveCategory("database")}
             />
+
             <SkillTitle
               Title="Creative Tools"
               onClick={() => setActiveCategory("tools")}
             />
+
             <SkillTitle
               Title="Networking & IT Support"
               onClick={() => setActiveCategory("networking")}
             />
+
             <SkillTitle
               Title="Additional Skills"
               onClick={() => setActiveCategory("extra")}
             />
-          </>
+          </div>
         )}
       </motion.div>
     </div>

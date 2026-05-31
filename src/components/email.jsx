@@ -7,6 +7,7 @@ export default function ContactForm() {
     email: "",
     message: "",
   });
+
   const [status, setStatus] = useState(null);
   const [showMessage, setShowMessage] = useState(false);
 
@@ -41,12 +42,12 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="relative w-full flex flex-col items-center">
+    <div className="relative w-full flex flex-col items-center min-h-screen py-10 justify-center">
       <form
         onSubmit={handleSubmit}
-        className="w-full flex flex-col items-center"
+        className="w-full flex flex-col items-center gap-3"
       >
-        <h1 className="text-white text-[35px] font-light mb-2 w-[80%] text-left font-[Poppins]">
+        <h1 className="text-white text-2xl sm:text-3xl md:text-[35px] font-light mb-2 w-[80%] text-left font-[Poppins]">
           Get in Touch
         </h1>
 
@@ -56,7 +57,7 @@ export default function ContactForm() {
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          className="mb-3 w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
+          className="w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
           required
         />
 
@@ -66,24 +67,29 @@ export default function ContactForm() {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          className="mb-3 w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
+          className="w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
           required
         />
 
         <textarea
-          name="message"
-          placeholder="Your Message"
-          value={formData.message}
-          onChange={handleChange}
-          rows={4}
-          className="mb-3 w-[80%] p-3 rounded-md border border-[#00ADB5] text-white font-extralight placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ADB5]"
-          required
-        />
+  name="message"
+  placeholder="Your Message"
+  value={formData.message}
+  onChange={handleChange}
+  className="
+    w-[80%] p-3 rounded-md border border-[#00ADB5]
+    text-white font-extralight placeholder-gray-400
+    focus:outline-none focus:ring-2 focus:ring-[#00ADB5]
+
+    h-24 sm:h-28 md:h-32
+  "
+  required
+/>
 
         <div className="w-[80%] flex justify-end">
           <button
             type="submit"
-            className="text-[30px] w-[35%] bg-[#00ADB5] text-white font-semibold px-5 rounded-md hover:bg-[#008b99] hover:scale-105 transition duration-300"
+            className="text-lg sm:text-2xl md:text-[30px] w-[60%] sm:w-[40%] md:w-[35%] bg-[#00ADB5] text-white font-semibold px-5 rounded-md hover:bg-[#008b99] hover:scale-105 transition duration-300"
           >
             SEND
           </button>
@@ -93,9 +99,13 @@ export default function ContactForm() {
       {/* Toast Message */}
       {showMessage && (
         <div
-          className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-10 py-5 rounded-lg text-white font-[Poppins] font-semibold text-[2rem] transition-all duration-300 ${
-            status === "success" ? "bg-green-500" : "bg-red-500"
-          }`}
+          className={`fixed left-1/2 transform -translate-x-1/2 px-6 py-3 sm:px-10 sm:py-5 rounded-lg text-white font-[Poppins] font-semibold text-base sm:text-xl md:text-2xl transition-all duration-300
+            ${
+              status === "success"
+                ? "bg-green-500"
+                : "bg-red-500"
+            }
+            bottom-6 sm:top-1/2 sm:-translate-y-1/2`}
         >
           {status === "success"
             ? "Message sent successfully!"

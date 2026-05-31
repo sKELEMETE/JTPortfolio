@@ -32,9 +32,9 @@ export default function App() {
       <div ref={projectRef} id="third-section">
         <ThirdSection scrollToProjects={() => scrollToSection(projectRef)} />
       </div>
-      <div ref={aboutRef}>
+      {/* <div ref={aboutRef}>
         <FourthSection />
-      </div>
+      </div> */}
     </>
   );
 }

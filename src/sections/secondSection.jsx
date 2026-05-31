@@ -1,169 +1,114 @@
-import { useState } from "react";
-import { motion } from "framer-motion";
-import Topbar from "../components/topbar";
-import RadioSelector from "../components/radioSelector";
-import gridImg from "../assets/imgs/grid.svg";
-import jt3d from "../assets/imgs/jtcon.svg";
-import jt3dback from "../assets/imgs/jt3dback.svg";
+import { motion, useReducedMotion } from "framer-motion";
 import SkillsSection from "../components/SkillsSection";
+import { memo } from "react";
 
 const skillsData = [
-  { id: 1, label: "Fast Learner", icon: "⚡", angle: 30, distance: 160 },
-  { id: 2, label: "Collaboration", icon: "🤝", angle: 90, distance: 160 },
-  { id: 3, label: "Problem-Solving", icon: "🧠", angle: 150, distance: 160 },
-  { id: 4, label: "Adaptability", icon: "🌍", angle: 210, distance: 160 },
-  { id: 5, label: "Time Management", icon: "⏰", angle: 270, distance: 160 },
-  { id: 6, label: "Communication", icon: "💬", angle: 330, distance: 160 },
-  { id: 7, label: "Leadership", icon: "🏆", angle: 420, distance: 250 },
-  { id: 7, label: "Creativity", icon: "🎨", angle: 240, distance: 250 },
+  { id: 1, label: "Fast Learner", icon: "⚡" },
+  { id: 2, label: "Collaboration", icon: "🤝" },
+  { id: 3, label: "Problem Solving", icon: "🧠" },
+  { id: 4, label: "Adaptability", icon: "🌍" },
+  { id: 5, label: "Time Management", icon: "⏰" },
+  { id: 6, label: "Communication", icon: "💬" },
+  { id: 7, label: "Leadership", icon: "🏆" },
+  { id: 8, label: "Creativity", icon: "🎨" },
 ];
 
-const CONTENT = {
-  soft: {
-    left: {
-      component: (
-        <div className="w-full h-full flex items-end justify-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
-            className="w-full h-full flex items-end justify-center"
-          >
-            <img src={gridImg} alt="grid" className="absolute w-[85%]" />
-            <img src={jt3d} alt="jt3d" className="z-10 w-[75%]" />
-          </motion.div>
-        </div>
-      ),
-    },
-    right: {
-      component: (
-        <div className="pt-10 relative w-full h-full flex justify-start items-start cursor-default">
-          <div className="relative w-[380px] aspect-square ">
-            <motion.div
-              className="absolute top-1/2 left-1/2 w-[90px] h-[90px] 
-rounded-full 
-bg-gradient-to-b from-[#00ADB540] to-[#00ADB520] 
-backdrop-blur-[6px] 
-border border-[#00ADB5]/60 
-shadow-[0_0_25px_#00ADB560,0_0_60px_#00ADB520,inset_0_0_20px_#00ADB520]
-flex items-center justify-center 
-text-white font-semibold 
-transition-all duration-500 ease-[cubic-bezier(0.37,1.95,0.66,0.56)] 
-hover:scale-110 hover:shadow-[0_0_40px_#00ADB5,0_0_80px_#00ADB520,inset_0_0_30px_#00ADB540]
-"
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.6, ease: "easeOut" }}
-            ></motion.div>
+export default function SecondSection() {
+  const shouldReduceMotion = useReducedMotion();
 
-            {skillsData.map((skill) => (
-              <SkillNode
-                key={skill.id}
-                label={skill.label}
-                icon={skill.icon}
-                angle={skill.angle}
-                distance={skill.distance}
-              />
+  return (
+    <section className="relative h-screen w-full overflow-hidden px-4 sm:px-8 lg:px-30 pt-30 pb-8 bg-[#05070C]">
+      <div className="absolute inset-0">
+        <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-blue-500/10 blur-[140px]" />
+        <div className="absolute bottom-[-200px] right-[-120px] w-[500px] h-[500px] rounded-full bg-cyan-400/10 blur-[160px]" />
+        <div className="absolute top-1/2 left-[-200px] w-[400px] h-[400px] rounded-full bg-indigo-500/10 blur-[160px]" />
+      </div>
+
+      <div className="relative w-full h-full grid grid-cols-1 lg:grid-cols-2 gap-5">
+
+        {/* LEFT */}
+        <div className="relative h-full rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.06] backdrop-blur-3xl shadow-[0_30px_120px_rgba(0,0,0,0.6)] flex flex-col">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-blue-400/10 blur-[120px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/20 opacity-40" />
+          </div>
+
+          <div className="relative z-10 p-5 sm:p-6">
+            <div className="text-white/50 text-[11px] tracking-[0.3em] uppercase">
+              Soft Skills
+            </div>
+          </div>
+
+          <div className="relative z-10 flex-1 px-3 sm:px-5 pb-6 grid grid-cols-3 sm:grid-cols-4 gap-2 overflow-y-auto hide-scrollbar p-5">
+            {skillsData.map((skill, i) => (
+              <SoftSkillCard key={skill.id} skill={skill} index={i} />
             ))}
           </div>
         </div>
-      ),
-    },
-  },
 
-  tech: {
-    left: {
-      component: <SkillsSection />,
-    },
+        {/* RIGHT */}
+        <div className="relative h-full rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.06] backdrop-blur-3xl shadow-[0_30px_120px_rgba(0,0,0,0.6)] flex flex-col">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-400/10 blur-[160px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/5 via-transparent to-black/30 opacity-40" />
+          </div>
 
-    right: {
-      component: (
-        <div className="w-full h-full flex items-end justify-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 3, ease: "easeInOut" }}
-            className="w-full h-full flex items-end justify-center"
-          >
-            <img src={gridImg} alt="grid" className="absolute w-[85%]" />
-            <img src={jt3dback} alt="jt3dback" className="z-10 w-[62%]" />
-          </motion.div>
-        </div>
-      ),
-    },
-  },
-};
+          <div className="relative z-10 p-5 sm:p-6">
+            <div className="text-white/50 text-[11px] tracking-[0.3em] uppercase">
+              Technical Skills
+            </div>
+          </div>
 
-export default function SecondSection() {
-  const [selected, setSelected] = useState("soft");
-  const layout = CONTENT[selected];
-
-  return (
-    <div className="bg-[#222831] w-full h-screen flex flex-col border-b border-[#00ADB5]">
-      {/* <Topbar /> */}
-      <div className="flex flex-row w-full h-full px-5 pt-25">
-        <div className="w-[15%] h-full pl-10 pt-10">
-          <RadioSelector onChange={setSelected} />
+          <div className="relative z-10 flex-1 overflow-y-auto hide-scrollbar px-5 pb-6">
+            <SkillsSection />
+          </div>
         </div>
 
-        <div className="relative flex w-full h-full flex-row">
-          {["left", "right"].map((side) => (
-            <AnimatedColorCard
-              key={`${selected}-${side}`}
-              isLeft={side === "right"}
-            >
-              {layout[side].component}
-            </AnimatedColorCard>
-          ))}
-        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
-function AnimatedColorCard({ isLeft, children }) {
-  const moveX = isLeft ? ["0%", "50%", "100%"] : ["100%", "50%", "0%"];
-  return (
-    <motion.div
-      className="absolute h-full w-1/2"
-      animate={{ x: moveX }}
-      transition={{ duration: 1, ease: "linear" }}
-      style={{ left: 0 }}
-    >
-      <div className="h-full w-full">{children}</div>
-    </motion.div>
-  );
-}
-
-function SkillNode({ label, icon, angle, distance }) {
-  const radians = (angle * Math.PI) / 180;
-  const x = Math.cos(radians) * distance;
-  const y = Math.sin(radians) * distance;
+const SoftSkillCard = memo(function SoftSkillCard({ skill, index }) {
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "backOut" }}
-      className="absolute flex flex-col items-center"
-      style={{
-        top: `calc(50% + ${y}px)`,
-        left: `calc(50% + ${x}px)`,
-        transform: "translate(-50%, -50%)",
+      initial={shouldReduceMotion ? false : { opacity: 0, y: 10, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        duration: 0.35,
+        delay: index * 0.03,
+        ease: [0.22, 1, 0.36, 1],
       }}
+      whileHover={shouldReduceMotion ? undefined : { scale: 1.07, y: -6 }}
+      className="
+        relative
+        aspect-square
+        rounded-xl
+        flex flex-col items-center justify-center
+        text-center
+        cursor-pointer
+        select-none
+        bg-white/[0.08]
+        border border-white/15
+        backdrop-blur-2xl
+        shadow-[0_10px_40px_rgba(0,0,0,0.35)]
+        transform-gpu
+        will-change-transform
+      "
     >
-      <motion.div
-        whileHover={{
-          scale: 1.15,
-          textShadow: "0 0 12px #00ADB5",
-        }}
-        className="w-[70px] h-[70px] bg-[#393E46] rounded-full flex items-center justify-center text-2xl shadow-[0_0_10px_#00ADB5] text-[#00ADB5]"
-      >
-        {icon}
-      </motion.div>
-      <p className="text-sm text-gray-200 mt-2 text-center font-[Poppins]">
-        {label}
-      </p>
+      <div className="absolute inset-0 rounded-xl bg-gradient-to-b from-white/20 via-white/5 to-transparent opacity-60" />
+      <div className="absolute inset-0 rounded-xl ring-1 ring-white/10" />
+      <div className="absolute inset-0 rounded-xl opacity-0 hover:opacity-100 transition-opacity duration-300 bg-blue-400/10 blur-xl" />
+
+      <div className="relative text-2xl sm:text-3xl mb-1 drop-shadow-lg">
+        {skill.icon}
+      </div>
+
+      <div className="relative text-white/70 text-[10px] sm:text-xs font-light px-1 leading-tight">
+        {skill.label}
+      </div>
     </motion.div>
   );
-}
+});
